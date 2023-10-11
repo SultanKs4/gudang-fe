@@ -24,14 +24,6 @@ export const metadata: Metadata = {
   description: 'Gudang apps for admin',
 };
 
-const DRAWER_WIDTH = 240;
-
-const LINKS = [
-  { text: 'Home', href: '/', icon: HomeIcon },
-  { text: 'Item', href: '/item', icon: InventoryIcon },
-  { text: 'Stock Item', href: '/item-stock', icon: ChecklistIcon },
-];
-
 export default function RootLayout({
   children,
 }: {
@@ -41,7 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ThemeRegistry>
-          <AppBar position="fixed" sx={{ zIndex: 2000 }}>
+          <AppBar position="fixed" sx={{ zIndex: 1000 }}>
             <Toolbar sx={{ backgroundColor: 'background.paper' }}>
               <DashboardIcon
                 sx={{ color: '#444', mr: 2, transform: 'translateY(-2px)' }}
@@ -51,41 +43,11 @@ export default function RootLayout({
               </Typography>
             </Toolbar>
           </AppBar>
-          <Drawer
-            sx={{
-              width: DRAWER_WIDTH,
-              flexShrink: 0,
-              '& .MuiDrawer-paper': {
-                width: DRAWER_WIDTH,
-                boxSizing: 'border-box',
-                top: ['48px', '56px', '64px'],
-                height: 'auto',
-                bottom: 0,
-              },
-            }}
-            variant="permanent"
-            anchor="left"
-          >
-            <Divider />
-            <List>
-              {LINKS.map(({ text, href, icon: Icon }) => (
-                <ListItem key={href} disablePadding>
-                  <ListItemButton component={Link} href={href}>
-                    <ListItemIcon>
-                      <Icon />
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-            </List>
-          </Drawer>
           <Box
             component="main"
             sx={{
               flexGrow: 1,
               bgcolor: 'background.default',
-              ml: `${DRAWER_WIDTH}px`,
               mt: ['48px', '56px', '64px'],
               p: 3,
             }}
