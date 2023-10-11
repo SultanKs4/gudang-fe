@@ -3,7 +3,7 @@ export interface Data {
   code: string;
   nama: string;
   jumlah: number;
-  deskripsi: string;
+  deskripsi?: string;
   status_active: boolean;
 }
 
@@ -11,7 +11,7 @@ export interface DataDto {
   code: string;
   nama: string;
   jumlah: number;
-  deskripsi: string;
+  deskripsi?: string | null;
   status_active: boolean;
 }
 
